@@ -1,10 +1,8 @@
-[workspace]
-members = ["day01", "day02", "day03", "day04"]
-
 [package]
-name = "aoc2025"
+name = "day04"
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+aoc2025 = { path = ".." }
 glam = "0.30.9"
