@@ -30,6 +30,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "day05"
+version = "0.1.0"
+
+[[package]]
 name = "glam"
 version = "0.30.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
