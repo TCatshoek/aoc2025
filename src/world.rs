@@ -73,18 +73,9 @@ impl World {
         self.buf[row * self.width..row * self.width + self.width].into_iter()
     }
 
-    pub fn iter_cols(&'_ self) -> impl Iterator<Item=impl Iterator<Item=char> + '_> {
-        (0..self.width).map(move |col_start| {
-            let mut next_index = col_start;
-            std::iter::from_fn(move || {
-                if next_index < self.buf.len() {
-                    let current = self.buf[next_index];
-                    next_index += self.width;
-                    Some(current)
-                } else {
-                    None
-                }
-            })
+    pub fn iter_cols(&self) -> impl DoubleEndedIterator<Item = impl DoubleEndedIterator<Item = char> + '_> + '_ {
+        (0..self.width).map(move |col| {
+            (0..self.height).map(move |row| self.buf[col + row * self.width])
         })
     }
 
